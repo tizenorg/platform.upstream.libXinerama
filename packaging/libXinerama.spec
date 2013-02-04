@@ -5,7 +5,6 @@ License:        MIT
 Summary:        X
 Url:            http://www.x.org
 Group:          System Environment/Libraries
-
 Source0:        %{name}-%{version}.tar.bz2
 
 BuildRequires:  pkgconfig
@@ -22,7 +21,6 @@ X.Org X11 libXinerama runtime library
 Summary:        X
 Group:          Development/Libraries
 Requires:       %{name} = %{version}
-Provides:       libxinerama-devel
 
 %description devel
 X.Org X11 libXinerama development package
@@ -32,8 +30,7 @@ X.Org X11 libXinerama development package
 
 %build
 
-%configure --disable-static \
-	       LDFLAGS="${LDFLAGS} -Wl,--hash-style=both -Wl,--as-needed"
+%configure --disable-static 
 make %{?_smp_mflags}
 
 %install
@@ -46,7 +43,7 @@ make %{?_smp_mflags}
 
 %files
 %defattr(-,root,root,-)
-%doc COPYING
+%license COPYING
 %{_libdir}/libXinerama.so.1
 %{_libdir}/libXinerama.so.1.0.0
 
