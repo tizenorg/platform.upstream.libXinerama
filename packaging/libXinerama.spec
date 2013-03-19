@@ -2,9 +2,9 @@ Name:           libXinerama
 Version:        1.1.2
 Release:        1
 License:        MIT
-Summary:        X
+Summary:        Xinerama protocol library
 Url:            http://www.x.org
-Group:          System Environment/Libraries
+Group:          Graphics/X Window System
 Source0:        %{name}-%{version}.tar.bz2
 
 BuildRequires:  pkgconfig
@@ -18,7 +18,7 @@ BuildRequires:  pkgconfig(xproto)
 X.Org X11 libXinerama runtime library
 
 %package devel
-Summary:        X
+Summary:        Xinerama protocol library
 Group:          Development/Libraries
 Requires:       %{name} = %{version}
 
