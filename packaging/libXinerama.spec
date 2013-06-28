@@ -6,6 +6,7 @@ Summary:        Xinerama protocol library
 Url:            http://www.x.org
 Group:          Graphics/X Window System
 Source0:        %{name}-%{version}.tar.bz2
+Source1001: 	libXinerama.manifest
 
 BuildRequires:  pkgconfig
 BuildRequires:  pkgconfig(x11)
@@ -27,6 +28,7 @@ X.Org X11 libXinerama development package
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 
@@ -42,12 +44,14 @@ make %{?_smp_mflags}
 %postun -p /sbin/ldconfig
 
 %files
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %license COPYING
 %{_libdir}/libXinerama.so.1
 %{_libdir}/libXinerama.so.1.0.0
 
 %files devel
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %{_libdir}/libXinerama.so
 %{_libdir}/pkgconfig/xinerama.pc
