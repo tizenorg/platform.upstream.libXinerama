@@ -1,3 +1,5 @@
+%bcond_with x
+
 Name:           libXinerama
 Version:        1.1.2
 Release:        1
@@ -14,6 +16,10 @@ BuildRequires:  pkgconfig(xext)
 BuildRequires:  pkgconfig(xineramaproto)
 BuildRequires:  pkgconfig(xorg-macros)
 BuildRequires:  pkgconfig(xproto)
+
+%if !%{with x}
+ExclusiveArch:
+%endif
 
 %description
 X.Org X11 libXinerama runtime library
@@ -32,7 +38,7 @@ cp %{SOURCE1001} .
 
 %build
 
-%configure --disable-static 
+%configure --disable-static
 make %{?_smp_mflags}
 
 %install
