@@ -1,7 +1,7 @@
 %bcond_with x
 
 Name:           libXinerama
-Version:        1.1.2
+Version:        1.1.3
 Release:        1
 License:        MIT
 Summary:        Xinerama protocol library
@@ -38,7 +38,7 @@ cp %{SOURCE1001} .
 
 %build
 
-%configure --disable-static
+%autogen --disable-static
 make %{?_smp_mflags}
 
 %install
